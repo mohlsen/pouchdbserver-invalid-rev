@@ -24,8 +24,10 @@ async function main() {
     };
 
     const myDb = new RemotePouch(dbName);
+    // Get things started by putting a document in the db.
     await upsert(myDb, person);
 
+    // Send a valid request to the server.
     try {
         console.log(`Sending request with valid rev ${person._rev}.`);
 
@@ -41,8 +43,8 @@ async function main() {
         console.log("Request failed:", err);
     }
 
+    // Send an invalid request to the server that will cause it to crash.
     try {
-        // The following POST will cause the server to crash.
         const invalidRev = getInvalidRev(person._rev);
         console.log(`Sending request with invalid rev ${invalidRev}.`);
 
@@ -56,7 +58,6 @@ async function main() {
     }
     catch (err) {
         console.log("Request failed:", err);
-
     }
 }
 
@@ -76,6 +77,7 @@ async function upsert(db, doc) {
 
 
 function getInvalidRev(rev) {
+    // Create an invalid revision by incrementing the last digit.
     const lastDigit = parseInt(rev[rev.length - 1], 16);
     const newLastDigit = lastDigit === 0xf ? 0 : lastDigit + 1;
     const invalidRev = rev.slice(0, -1) + newLastDigit.toString(16);
