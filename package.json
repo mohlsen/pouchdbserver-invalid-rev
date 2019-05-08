@@ -4,6 +4,7 @@
   "description": "Reproduce issue with invalid _rev.",
   "main": "index.js",
   "scripts": {
+    "start-server": "./node_modules/.bin/pouchdb-server --port 3030 --dir ./dbs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,5 +12,9 @@
     "url": "https://mft.ra-int.com/gitlab/kwpeters/pouchdb_invalid_rev.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "pouchdb": "7.0.0",
+    "pouchdb-server": "4.1.0"
+  }
 }
