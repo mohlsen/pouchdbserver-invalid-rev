@@ -1,0 +1,15 @@
+{
+  "name": "pouchdb_invalid_rev",
+  "version": "1.0.0",
+  "description": "Reproduce issue with invalid _rev.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mft.ra-int.com/gitlab/kwpeters/pouchdb_invalid_rev.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
